@@ -39,16 +39,14 @@ export default function AuthProvider({ children }: Props) {
     return resp;
   };
 
-  // console.log("token", token);
-
   const register = (payload: AuthPayload) => {
     return authApi
       .register(payload)
       .then((value) => setAsLoggedIn(value.data))
-      .catch((error) => toast.error("Code is not correct"));
-    // return authApi
-    //   .register(payload)
-    //   .then((value) => console.log("register value", value));
+      .catch((error) => {
+        toast.error("Code is not correct")
+        console.log("Error register", error)
+      });
   };
 
   const value = { isLoggedIn, register };

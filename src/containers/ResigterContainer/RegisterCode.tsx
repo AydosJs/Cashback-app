@@ -5,8 +5,8 @@ import Countdown from "react-countdown";
 import * as Yup from "yup";
 import { Link, Navigate } from "react-router-dom";
 import { AuthPayload, getCode } from "../../api/authApi";
-import { RegisterContext } from "../../Providers/ResigterProvider";
-import { AuthContext } from "../../Providers/AuthProvider";
+import { RegisterContext } from "../../providers/ResigterProvider";
+import { AuthContext } from "../../providers/AuthProvider";
 
 export const RegisterCode = () => {
   const { register } = useContext<any>(AuthContext);

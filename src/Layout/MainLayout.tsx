@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import { AuthContext } from "../Providers/AuthProvider";
+import { AuthContext } from "../providers/AuthProvider";
 import HeaderComponent from "./HeaderComponent";
 
 

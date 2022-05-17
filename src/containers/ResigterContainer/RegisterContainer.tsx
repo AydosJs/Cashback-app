@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { AuthPayload, getCode } from "../../api/authApi";
 import { useContext } from "react";
-import { RegisterContext } from "../../Providers/ResigterProvider";
+import { RegisterContext } from "../../providers/ResigterProvider";
 
 export const RegisterContainer = () => {
   const navigate = useNavigate();

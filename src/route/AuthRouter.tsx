@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { Navigate, Outlet } from "react-router-dom";
-import { AuthContext } from "../Providers/AuthProvider";
-import RegisterProvider from "../Providers/ResigterProvider";
+import { AuthContext } from "../providers/AuthProvider";
+import RegisterProvider from "../providers/ResigterProvider";
 
 export type TokenResponse = {
   token: string;
