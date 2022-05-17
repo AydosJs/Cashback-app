@@ -6,8 +6,8 @@ import AuthRoute from "./AuthRouter";
 import ProductsContainerContainer from "../containers/productsContainer/ProductsContainerContainer";
 import CompaniesContainer from "../containers/companiesContainer/CompaniesContainer";
 import { Toaster } from "react-hot-toast";
-import { MainLayout } from "../Layout/MainLayout";
-import BaseContainer from "../Layout/BaseContainer";
+import { MainLayout } from "../layout/MainLayout";
+import BaseContainer from "../layout/BaseContainer";
 
 export const RouteHandler = () => {
   return (
