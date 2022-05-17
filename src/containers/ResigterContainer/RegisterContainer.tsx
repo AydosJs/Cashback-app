@@ -44,8 +44,6 @@ export const RegisterContainer = () => {
         <h2 className="mb-12 text-center text-5xl font-extrabold">Welcome.</h2>
 
         <div className="text-left">
-          {/* <label id="remember_me" className="block text-md mb-2 leading-5 text-gray-900">
-          </label> */}
           <label className="mr-4 text-gray-700 font-semibold inline-block mb-2" htmlFor="phone_number">
             Phone number
           </label>
@@ -65,15 +63,12 @@ export const RegisterContainer = () => {
           )}
         </div>
 
-        <div className="">
-          <button
-            type="submit"
-            className="bg-blue-600 hover:bg-blue-700  p-2 rounded w-full font-medium text-white"
-          >
-            GET CODE
-          </button>
-        </div>
-
+        <button
+          type="submit"
+          className="bg-blue-600 hover:bg-blue-700  p-2 rounded w-full font-medium text-white"
+        >
+          GET CODE
+        </button>
       </form>
     </div>
   );

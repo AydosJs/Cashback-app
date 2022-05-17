@@ -10,7 +10,6 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 export const RegisterCode = () => {
   const { register } = useContext<any>(AuthContext);
-
   const { payload, setPayload } = useContext<any>(RegisterContext);
 
   const getCodeAgain = async () => {
@@ -21,9 +20,7 @@ export const RegisterCode = () => {
     const data = {
       ...payload,
       code: values.code
-      // phoneNumber: values.phoneNumber.replace(/\s/g, "")
     };
-    console.log("values", values, payload);
     setPayload({ ...payload, code: values.code });
     register(data);
   };
@@ -43,9 +40,8 @@ export const RegisterCode = () => {
   const timer = 120000;
 
 
-  const renderer = ({ minutes, seconds, completed }: any) => {
+  const CountDownRender = ({ minutes, seconds, completed }: any) => {
     if (completed) {
-      // Render a completed state
       return (
         <button
           type="reset"
@@ -58,7 +54,6 @@ export const RegisterCode = () => {
         </button>
       );
     } else {
-      // Render a countdown
       return (
         <div className="text-sm text-gray-700">
           <div className='mb-6'>
@@ -97,7 +92,6 @@ export const RegisterCode = () => {
           Get the code
         </h2>
 
-
         <div className="text-left">
           <input
             type="text"
@@ -118,7 +112,7 @@ export const RegisterCode = () => {
           <Countdown
             key={timerNow}
             date={timerNow + timer}
-            renderer={renderer}
+            renderer={CountDownRender}
           />
           <Link
             to="/register"

@@ -1,7 +1,6 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { Company, getCompanies } from "../../api/companiesApi";
+import { Link } from "react-router-dom";
 
 export default function CompaniesContainer() {
   const [items, setItem] = useState<Company[]>([]);
@@ -16,7 +15,6 @@ export default function CompaniesContainer() {
       setLoader(true);
       const res = await getCompanies();
       setItem(res.data.items);
-      // console.log("COMPANIES", res.data);
     } catch (error) {
       console.log("Error COMPANIES", error);
     } finally {

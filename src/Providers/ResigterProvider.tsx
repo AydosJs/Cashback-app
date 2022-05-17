@@ -17,8 +17,6 @@ export default function RegisterProvider({
     code: ""
   });
 
-  console.log("payload", payload);
-
   return (
     <RegisterContext.Provider value={{ payload, setPayload }}>
       {children}

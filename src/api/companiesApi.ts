@@ -26,8 +26,8 @@ export interface Product {
 }
 
 interface RequestsResponse {
-  current_page_number: number;
-  num_items_per_page: number;
+  current_page_number?: number;
+  num_items_per_page?: number;
   items?: Company[] | Product[];
   total_count: number;
 }

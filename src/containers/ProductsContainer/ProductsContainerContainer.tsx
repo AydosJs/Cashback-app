@@ -9,7 +9,6 @@ export interface IResponse {
 }
 
 
-
 export default function ProductsContainer() {
   const [loader, setLoader] = useState<Boolean>(false);
   const [products, setProducts] = useState<IResponse>({
@@ -27,20 +26,17 @@ export default function ProductsContainer() {
     try {
       setLoader(true);
       const payload = params?.id;
-      // console.log('params',params)
       const res = await getCompaniesProducts(payload);
       setProducts({
         items: res.data.items,
         total_count: res.data.total_count
       });
-      // console.log("PRODUSCTS", res.data);
     } catch (error) {
       console.log("Error COMPANIES", error);
     } finally {
       setLoader(false);
     }
   }
-  // console.log("products", products);
 
   return (
     <>

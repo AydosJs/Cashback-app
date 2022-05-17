@@ -1,30 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
-import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import { Product } from "../api/companiesApi";
-import { IResponse } from "../containers/productsContainer/ProductsContainerContainer";
 
 export function TableBodyWithPagination({ loader, products }: any) {
-  // PAGINATION
   const [currentItems, setCurrentItems] = useState<Product[] | null>(null);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 6;
 
   useEffect(() => {
-    // console.log("I AM IN", products);
     const endOffset = itemOffset + itemsPerPage;
-    // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     setCurrentItems(products?.items.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(products?.items.length / itemsPerPage));
   }, [itemOffset, itemsPerPage]);
 
   const handlePageClick = (event: any) => {
     const newOffset = (event.selected * itemsPerPage) % products?.items.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
     setItemOffset(newOffset);
   };
 
@@ -97,12 +89,6 @@ export function TableBodyWithPagination({ loader, products }: any) {
             <th
               scope="col"
               className="px-6 py-3"
-            // onClick={() =>
-            //   setSortedField({
-            //     ...sortedField,
-            //     date: Boolean(sortedField.date) ? null : true
-            //   })
-            // }
             >
               Created at
             </th>
