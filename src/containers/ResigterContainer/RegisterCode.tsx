@@ -42,7 +42,8 @@ export const RegisterCode = () => {
   const [timerNow, setTimerNow] = useState(Date.now());
   const timer = 120000;
 
-  const renderer = ({ hours, minutes, seconds, completed }: any) => {
+
+  const renderer = ({ minutes, seconds, completed }: any) => {
     if (completed) {
       // Render a completed state
       return (
@@ -60,7 +61,7 @@ export const RegisterCode = () => {
       // Render a countdown
       return (
         <div className="text-sm text-gray-700">
-          <div className='mb-4'>
+          <div className='mb-6'>
             <p>
               You can get the code again after{" "}
               <span className="font-bold text-black">
@@ -70,26 +71,19 @@ export const RegisterCode = () => {
             </p>
           </div>
 
-          <div className="">
-            <button
-              type="submit"
-              className="mb-2 bg-blue-600 p-2 rounded w-full font-medium text-white"
-            >
-              Submit
-            </button>
-            <Link
-              to="/register"
-              className="text-sm text-blue-500 hover:underline"
-            >
-              Change phone number ({payload.phoneNumber})
-            </Link>
-          </div>
+          <button
+            type="submit"
+            className="mb-2 bg-blue-600 p-2 rounded w-full font-medium text-white"
+          >
+            Submit
+          </button>
+
         </div>
       );
     }
   };
 
-  if (!Boolean(payload.phoneNumber)) {
+  if (payload.phoneNumber === "") {
     console.log("payload", payload, typeof payload.phoneNumber);
     return <Navigate to={"/register"} />;
   }
@@ -98,12 +92,11 @@ export const RegisterCode = () => {
     <div
       className="flex w-full justify-center items-center min-h-screen xm:p-10"
     >
-      <form className="flex flex-col space-y-6 rounded shadow-lg p-8 md:p-12" onSubmit={formik.handleSubmit}>
-        <div>
-          <p className='text-xl font-semibold'>
-            Get the code
-          </p>
-        </div>
+      <form className="flex flex-col space-y-6 rounded p-8 md:p-12" onSubmit={formik.handleSubmit}>
+        <h2 className="mb-12 text-center text-5xl font-extrabold">
+          Get the code
+        </h2>
+
 
         <div className="text-left">
           <input
@@ -127,9 +120,13 @@ export const RegisterCode = () => {
             date={timerNow + timer}
             renderer={renderer}
           />
+          <Link
+            to="/register"
+            className="text-sm text-blue-500 hover:underline"
+          >
+            Change phone number ({payload.phoneNumber})
+          </Link>
         </div>
-
-
 
       </form>
     </div>

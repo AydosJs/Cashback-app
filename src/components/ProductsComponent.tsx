@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import { Product } from "../api/companiesApi";
-import { IResponse } from "../containers/ProductsContainer/ProductsContainerContainer";
+import { IResponse } from "../containers/productsContainer/ProductsContainerContainer";
 
 export function TableBodyWithPagination({ loader, products }: any) {
   // PAGINATION

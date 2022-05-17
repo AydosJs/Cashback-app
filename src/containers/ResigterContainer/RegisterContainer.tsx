@@ -39,25 +39,25 @@ export const RegisterContainer = () => {
 
   return (
     <div className="flex w-full justify-center items-center min-h-screen xm:p-10">
-      <form style={{
-        boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px'
-      }} className="flex flex-col space-y-6 rounded shadow-lg p-8 md:p-12" onSubmit={formik.handleSubmit}>
+      <form className="flex flex-col space-y-6 rounded  md:p-12" onSubmit={formik.handleSubmit}>
 
-        <div>
-          <p className='text-xl font-semibold'>
-            Register
-          </p>
-        </div>
+        <h2 className="mb-12 text-center text-5xl font-extrabold">Welcome.</h2>
 
         <div className="text-left">
+          {/* <label id="remember_me" className="block text-md mb-2 leading-5 text-gray-900">
+          </label> */}
+          <label className="mr-4 text-gray-700 font-semibold inline-block mb-2" htmlFor="phone_number">
+            Phone number
+          </label>
           <input
             type="text"
             id="phoneNumber"
+            aria-label='remember_me'
             name="phoneNumber"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.phoneNumber}
-            className="form-control block w-full px-3 py-2 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            className="form-control block  w-full px-3 py-2 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             placeholder="998 00 000 00 00"
           />
           {Boolean(formik.touched.phoneNumber) && (
@@ -68,7 +68,7 @@ export const RegisterContainer = () => {
         <div className="">
           <button
             type="submit"
-            className="bg-blue-600 p-2 rounded w-full font-medium text-white"
+            className="bg-blue-600 hover:bg-blue-700  p-2 rounded w-full font-medium text-white"
           >
             GET CODE
           </button>

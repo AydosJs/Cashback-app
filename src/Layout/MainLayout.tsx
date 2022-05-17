@@ -1,12 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, Navigate, Outlet } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { AuthContext } from "../Providers/AuthProvider";
 
-interface IMainLayout {
-  children: React.ReactNode;
-}
 
-export const MainLayout = (props: IMainLayout) => {
-  const { children } = props;
+export const MainLayout = () => {
+
+  const { isLoggedIn } = useContext<any>(AuthContext);
+  if (!isLoggedIn) {
+    toast.error("You haven't registered YET !");
+    return <Navigate to={"/register"} replace />;
+  }
 
   return (
     <div className="flex flex-col">
@@ -40,7 +44,7 @@ export const MainLayout = (props: IMainLayout) => {
         }}
         className="flex p-8"
       >
-        {children}
+        <Outlet />
       </main>
       <footer className="p-4 bg-blue-500">I am footer</footer>
     </div>
