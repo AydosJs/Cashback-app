@@ -34,9 +34,15 @@ export default function CompaniesContainer() {
             key={index}
           >
             <div key={index} className="p-6">
+              {/* <div className="w-full" style={{
+                backgroundImage: `url(${item?.urls?.original})`
+              }}>
+
+              </div> */}
               <div className="mb-4">
                 <p className="text-lg font-semibold">{item.name}</p>
               </div>
+              <hr className="w-full mb-2 opacity-50 h-[.5px]" />
               <div className="mb-4">
                 <p
                   className="fontSize-sm text-gray-600 line-clamp-2 whitespace-normal"
@@ -45,11 +51,12 @@ export default function CompaniesContainer() {
                 </p>
               </div>
             </div>
-          </Link>
+          </Link >
         ))
       ) : (
         <div className="">Loading....</div>
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 }
