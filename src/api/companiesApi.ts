@@ -9,6 +9,7 @@ export interface Company {
   rating: number;
   description: string;
   logo: any;
+  urls?: any
 }
 export interface Category {
   name?: string;
